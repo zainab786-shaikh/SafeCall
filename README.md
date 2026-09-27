@@ -52,7 +52,7 @@ The MVP accepts a browser-supported audio file or a microphone recording. Audio 
 - Silence ratio and longest low-energy interval
 - Thirteen mean MFCC coefficients
 
-Configured phrases can be matched against an optional user-entered transcript. While recording, browser speech recognition can be enabled separately; it is off by default. Transcript contents are used for phrase matching but are not saved with session history.
+Uploaded audio is transcribed locally in the browser with a cached Whisper model. The transcript is shown in the transcript field and configured phrases are matched against it. While recording, browser speech recognition can still be enabled separately; it is off by default. Transcript contents are used for phrase matching but are not saved with session history.
 
 An evaluation combines the available features with the saved personal baseline, routine window, configured phrases, and (only for a Level 4 candidate with saved consent) a one-time browser location lookup. Session records contain derived features and the result, not the audio file. Local session history is capped at 250 records.
 
@@ -83,7 +83,6 @@ This repository is a hackathon/browser prototype, not a production safety servic
 - Send contacts automatic or silent SMS, calls, push alerts, or emails
 - Provide authentication, a hosted API, or server-side database storage
 - Reliably estimate breathing rate, speech rate, background-noise events, or vocal micro-tremor from recordings
-- Transcribe uploaded files automatically
 
 The call simulator is a scripted UI test; its pitch and breathing values are illustrative. A Level 4 result is saved locally. The user can explicitly open a call or message to the configured primary contact, but SafeCall does not send it. Do not rely on this prototype in an emergency; contact local emergency services directly.
 

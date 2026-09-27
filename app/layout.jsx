@@ -74,23 +74,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="atmosphere-grid" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
 
-        {/* ── Hackathon Banner ── */}
-        <div style={{
-          background: 'linear-gradient(90deg,#0f766e,#0891b2)',
-          color: '#fff', padding: '7px 24px',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          fontSize: '0.76rem', fontWeight: 600, letterSpacing: '0.02em',
-        }}>
-          <span style={{ display:'flex', alignItems:'center', gap:10 }}>
-            <span style={{ background:'rgba(0,0,0,0.22)', padding:'2px 8px', borderRadius:4, fontSize:'0.68rem', textTransform:'uppercase', letterSpacing:'0.06em' }}>
-              PSWB 03 • Hackathon
-            </span>
-            Non-Verbal Distress Detection via Voice Pattern Analysis
-          </span>
-          <span style={{ display:'flex', alignItems:'center', gap:6, opacity:0.85 }}>
-            <Lock size={11} /> Privacy-First Local Processing
-          </span>
-        </div>
+        
 
         {/* ── Nav Bar ── */}
         <header style={{
@@ -146,12 +130,7 @@ export default function RootLayout({ children }) {
 
             {/* Right controls */}
             <div style={{ display:'flex', alignItems:'center', gap:10, flexShrink:0 }}>
-              <div className="glass-pill" style={{ fontSize:'0.72rem', gap:7 }}>
-                <span className="beacon" style={{ background:'#34d399' }}>
-                  <span className="beacon-pulse" style={{ background:'#34d399' }} />
-                </span>
-                Local Prototype
-              </div>
+              
               <button onClick={toggleTheme} aria-label="Toggle theme" style={{
                 background: 'var(--bg-tertiary)',
                 border: '1px solid var(--border-glass)',

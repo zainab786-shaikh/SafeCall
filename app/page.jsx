@@ -217,16 +217,13 @@ export default function HomePage() {
                 </Link>
             }
             <Link href="/inputs" className="btn btn-outline" style={{ padding:'9px 18px', borderColor:'var(--teal-400)', color:'var(--teal-300)', textAlign:'center', justifyContent:'center' }}>
-              <SlidersHorizontal size={15} /> System Inputs (Doc Sec 3)
+              <SlidersHorizontal size={100} /> System Inputs (Doc Sec 3)
             </Link>
             <Link href="/inputs" style={{ background:'none', border:'none', color:'var(--text-muted)', fontSize:'0.73rem', cursor:'pointer', textAlign:'center', padding:'2px 0', textDecoration:'none' }}>
               Edit My Profile &amp; Code-Words →
             </Link>
           </div>
-        </div>
-      </div>
-
-      {/* ── ROW 2: 3 Gauges + AI Result ── */}
+          {/* ── ROW 2: 3 Gauges + AI Result ── */}
       <div style={{ display:'grid', gridTemplateColumns:'auto 1fr', gap:20, alignItems:'stretch' }}>
 
         {/* 3 circular gauges */}
@@ -284,95 +281,16 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
-      {/* ── ROW 3: Scenarios + Live Mic ── */}
-      <div className="glass-panel" style={{ padding:'22px 26px' }}>
-        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:16, flexWrap:'wrap', gap:10 }}>
-          <SectionTitle
-            sub="See how the engine reacts to different real-world situations described in the architecture document."
-          >
-            Interactive Scenarios
-          </SectionTitle>
-
-          {!micLive
-            ? <button onClick={startMic} className="btn btn-outline" style={{ padding:'8px 14px', fontSize:'0.8rem' }}>
-                <Mic size={15} /> Test My Real Voice
-              </button>
-            : <button onClick={stopMic} className="btn btn-danger" style={{ padding:'8px 14px', fontSize:'0.8rem' }}>
-                <MicOff size={15} /> Stop Mic
-              </button>
-          }
-        </div>
-
-        {/* Live mic transcript strip */}
-        {micLive && (
-          <div style={{
-            background:'rgba(45,212,191,0.08)', border:'1px solid rgba(45,212,191,0.25)',
-            padding:'10px 14px', borderRadius:10, marginBottom:14,
-            fontSize:'0.84rem', color:'var(--text-primary)',
-          }}>
-            <span style={{ color:'var(--teal-400)', fontWeight:700 }}>Mic: </span>
-            {liveText || `Say "${profile.configuredCodeWords?.[0] || 'blue umbrella'}" or speak naturally…`}
-          </div>
-        )}
-
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(230px,1fr))', gap:12 }}>
-          {REAL_WORLD_SCENARIOS.map(sc => {
-            const active  = scenario.id === sc.id;
-            const isLvl4  = sc.id.includes('emergency') || sc.id.includes('coercion') || sc.id.includes('breathless');
-            const badgeClr = isLvl4 ? '#f43f5e' : sc.id.includes('office') ? 'var(--cyan-400)' : '#34d399';
-            return (
-              <div key={sc.id} className={`scenario-card${active ? ' active' : ''}`}
-                onClick={() => { stopMic(); setScenario(sc); }}>
-                <div style={{ fontSize:'0.65rem', fontWeight:700, color:badgeClr, textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:5 }}>
-                  {sc.badge}
-                </div>
-                <div style={{ fontWeight:700, fontSize:'0.88rem', marginBottom:4 }}>{sc.title}</div>
-                <p style={{ fontSize:'0.72rem', color:'var(--text-secondary)', lineHeight:1.45, margin:0 }}>
-                  {sc.description}
-                </p>
-                {active && (
-                  <div style={{ marginTop:8, fontSize:'0.68rem', color:'var(--teal-400)', fontWeight:600 }}>
-                    ● Active
-                  </div>
-                )}
-              </div>
-            );
-          })}
         </div>
       </div>
 
-      {/* ── ROW 4: PSWB03 Comparison ── */}
-      <div className="glass-panel" style={{ padding:'22px 26px' }}>
-        <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:6 }}>
-          <Sparkles size={18} color="var(--teal-400)" />
-          <h3 style={{ fontSize:'1rem', margin:0 }}>Why Non-Verbal AI Beats Panic Buttons</h3>
-        </div>
-        <p style={{ fontSize:'0.78rem', color:'var(--text-muted)', marginBottom:16, lineHeight:1.55 }}>
-          PSWB 03: <em>"Instead of requiring a person to press a panic button (which is often impossible in real danger)…"</em>
-        </p>
+     
 
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:12 }}>
-          <div style={{ background:'rgba(244,63,94,0.07)', border:'1px solid rgba(244,63,94,0.2)', padding:'14px 16px', borderRadius:14 }}>
-            <div style={{ fontWeight:700, color:'#f43f5e', fontSize:'0.82rem', marginBottom:8 }}>❌ Traditional Panic Button</div>
-            <ul style={{ listStyle:'none', fontSize:'0.75rem', color:'var(--text-secondary)', display:'flex', flexDirection:'column', gap:6 }}>
-              <li>• <strong>Hands restrained</strong> — cannot physically reach the button</li>
-              <li>• <strong>Aggressor watching</strong> — unlocking phone alerts them</li>
-              <li>• <strong>Fear freezing</strong> — acute trauma causes motor paralysis</li>
-              <li>• <strong>Phone in pocket</strong> — too slow, too obvious</li>
-            </ul>
-          </div>
-          <div style={{ background:'rgba(52,211,153,0.07)', border:'1px solid rgba(52,211,153,0.25)', padding:'14px 16px', borderRadius:14 }}>
-            <div style={{ fontWeight:700, color:'#34d399', fontSize:'0.82rem', marginBottom:8 }}>✓ SafeCall Non-Verbal AI</div>
-            <ul style={{ listStyle:'none', fontSize:'0.75rem', color:'var(--text-secondary)', display:'flex', flexDirection:'column', gap:6 }}>
-              <li>• <strong>Zero motor action</strong> — passive monitoring during natural conversation</li>
-              <li>• <strong>Covert code-words</strong> — "blue umbrella" sounds like normal chat</li>
-              <li>• <strong>Breathing sensor</strong> — panic gasps trigger alert without speaking</li>
-              <li>• <strong>Zero sound</strong> — silent dispatch, aggressor hears nothing</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
+
+        
+
+      
 
     </div>
   );

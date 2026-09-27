@@ -31,19 +31,12 @@ export default function AboutArchitecturePage() {
       {/* Hero Header */}
       <div className="glass-panel" style={{ padding: '32px', borderLeft: '4px solid var(--teal-400)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-          <span className="glass-pill" style={{ color: 'var(--teal-300)', borderColor: 'var(--teal-400)' }}>
-            <FileText size={14} /> Architecture Specification &amp; Flow
-          </span>
-          <span className="glass-pill" style={{ fontSize: '0.75rem' }}>
-            PSWB03 Hackathon Core Document
-          </span>
+          
         </div>
         <h1 style={{ fontSize: '2.2rem', marginBottom: '12px' }}>
           SafeCall <span className="gradient-text">System Architecture</span>
         </h1>
-        <p style={{ color: 'var(--text-secondary)', maxWidth: '820px', fontSize: '1.05rem', lineHeight: 1.6 }}>
-          SafeCall is a local-first audio-analysis prototype. Browser analysis currently extracts pitch, energy, silence/pause measures, and MFCCs; other signals are not inferred unless a test scenario or supported transcript provides them.
-        </p>
+        
 
         {/* USP Callout */}
         <div style={{

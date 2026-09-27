@@ -111,6 +111,49 @@ h1, h2, h3, h4, h5 {
 }
 .glass-panel:hover { border-color: var(--border-highlight); }
 
+/* ── Focused audio input workspace ── */
+.system-inputs-page {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.system-inputs-header {
+  background:
+    linear-gradient(135deg, rgba(20, 184, 166, 0.12), transparent 48%),
+    var(--bg-card);
+}
+
+.audio-workspace {
+  border-color: rgba(45, 212, 191, 0.42);
+  box-shadow: var(--shadow-lg), 0 0 42px rgba(20, 184, 166, 0.08);
+}
+
+.audio-workspace:hover {
+  border-color: var(--teal-400);
+  box-shadow: var(--shadow-lg), 0 0 52px rgba(20, 184, 166, 0.14);
+}
+
+.audio-workspace-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.audio-file-status {
+  background: linear-gradient(90deg, rgba(45, 212, 191, 0.09), var(--bg-tertiary));
+  border-color: rgba(45, 212, 191, 0.28) !important;
+}
+
+@media (max-width: 640px) {
+  .system-inputs-page { gap: 20px !important; }
+  .system-inputs-header { padding: 22px !important; }
+  .audio-workspace { padding: 20px !important; }
+  .audio-workspace-actions > * { flex: 1 1 100%; }
+  .audio-workspace-actions .btn { width: 100%; }
+}
+
 /* ── Pills ── */
 .glass-pill {
   background: rgba(45, 212, 191, 0.07);
